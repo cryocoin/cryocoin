@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
+uint256 hashGenesisBlock("0xc80b8cee940a38e1c7ebbd4dd97dcd5fc0809b69c128846b1cab84737d6e1d05");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Cryocoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2779,7 +2779,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+        const char* pszTimestamp = "Robin Williams dead at 63";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2791,14 +2791,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1408860444;
+        block.nTime    = 1408864717;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2084524493;
+        block.nNonce   = 222061;
 
         if (fTestNet)
         {
-            block.nTime    = 1408860444;
-            block.nNonce   = 385270584;
+            block.nTime    = 1408864717;
+            block.nNonce   = 222061;
         }
 
         //// debug print
@@ -2806,7 +2806,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(block.hashMerkleRoot == uint256("0x614c0bee40f7121a3b96407e4155222d4af3f19f1cb8d21f42ec0848e29a971f"));	
         block.print();
         assert(hash == hashGenesisBlock);
 
